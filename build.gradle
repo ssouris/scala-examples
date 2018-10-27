@@ -1,0 +1,42 @@
+group 'com.ssouris'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("org.unbroken-dome.gradle-plugins:gradle-testsets-plugin:1.5.0")
+
+    }
+}
+
+defaultTasks 'clean', ':json-parser:test', ':exchange-rates-api:test', ':exchange-rates-api:integrationTest'
+allprojects {
+
+
+    repositories {
+        jcenter()
+    }
+
+    apply plugin: 'scala'
+    apply from: "${rootDir}/gradle/dependencies.gradle"
+
+    dependencies {
+
+        compile "org.scala-lang:scala-library:${versions.scala}"
+        compile "com.typesafe.akka:akka-http_${versions.scalaMajor}:${versions.akkaHttp}"
+        compile "com.typesafe.akka:akka-stream_${versions.scalaMajor}:${versions.akkaStream}"
+        compile "com.typesafe.akka:akka-http-spray-json_${versions.scalaMajor}:${versions.akkaSprayJson}"
+        compile "com.typesafe.akka:akka-http-caching_${versions.scalaMajor}:${versions.akkaHttp}"
+
+        compile "com.fasterxml.jackson.module:jackson-module-scala_${versions.scalaMajor}:${versions.jacksonModuleScala}"
+
+        testCompile "junit:junit:${versions.junit}"
+        testCompile "org.scalatest:scalatest_${versions.scalaMajor}:${versions.scalaTest}"
+        testCompile "com.typesafe.akka:akka-http-testkit_${versions.scalaMajor}:${versions.akkaHttp}"
+
+
+    }
+
+}

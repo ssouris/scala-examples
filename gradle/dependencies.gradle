@@ -1,0 +1,12 @@
+ext {
+    versions = [
+            scalaMajor        : '2.12',
+            scala             : '2.11.12',
+            scalaTest         : '3.0.3',
+            akkaHttp          : '10.1.5',
+            akkaStream        : '2.5.12',
+            akkaSprayJson     : '10.1.5',
+            junit             : '4.12',
+            jacksonModuleScala: '2.9.7'
+    ]
+}

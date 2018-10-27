@@ -1,0 +1,5 @@
+rootProject.name = 'scala-examples'
+
+include 'json-parser'
+include 'exchange-rates-api'
+
